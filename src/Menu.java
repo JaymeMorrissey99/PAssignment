@@ -202,11 +202,11 @@ public class Menu extends JFrame{
 
 
 	public void administrator() {
-		boolean loop = true, loop2 = true;
+		boolean hasUsername = true, hasPassword = true;
 		boolean cont = false;
 
 
-		while(loop && loop2)
+		while(hasUsername && hasPassword)
 		{
 			Object adminUsername = JOptionPane.showInputDialog(f, "Enter Administrator Username:");
 			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
@@ -215,19 +215,19 @@ public class Menu extends JFrame{
 			{
 				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect Username. Try again?", JOptionPane.YES_NO_OPTION);
 				if (reply == JOptionPane.YES_OPTION) {
-					loop = true;
+					hasPassword = true;
 				}
 				else if(reply == JOptionPane.NO_OPTION)
 				{
 					f1.dispose();
-					loop = false;
-					loop2 = false;
+					hasUsername = false;
+					hasPassword = false;
 					menuStart();
 				}
 			}
 			else
 			{
-				loop = false;
+				hasUsername = false;
 			}
 
 			if(!adminPassword.equals("admin11"))//search admin list for admin with matching admin password
@@ -238,13 +238,13 @@ public class Menu extends JFrame{
 				}
 				else if(reply == JOptionPane.NO_OPTION){
 					f1.dispose();
-					loop2 = false;
+					hasPassword = false;
 					menuStart();
 				}
 			}
 			else
 			{
-				loop2 =false;
+				hasPassword =false;
 				cont = true;
 			}
 
@@ -277,7 +277,7 @@ public class Menu extends JFrame{
 		if(cont)
 		{
 			dispose();
-			loop = false;
+			hasUsername = false;
 			admin();					    
 		}					   
 	}
