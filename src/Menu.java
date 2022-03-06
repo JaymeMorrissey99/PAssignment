@@ -15,7 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Menu extends JFrame{
-	
+
 	//Indentation 
 
 	private ArrayList<Customer> customerList = new ArrayList<Customer>();
@@ -106,7 +106,7 @@ public class Menu extends JFrame{
 
 		});f.setVisible(true);	
 	}
-	
+
 	private void newCustomer() {
 		// TODO Auto-generated method stub
 		dispose();		
@@ -172,7 +172,7 @@ public class Menu extends JFrame{
 						Customer customer = new Customer(PPS, surname, firstName, DOB, CustomerID, password, accounts);
 
 						customerList.add(customer);
-//						System.out.println(customerList.toString());
+						//						System.out.println(customerList.toString());
 						JOptionPane.showMessageDialog(f, "CustomerID = " + CustomerID +"\n Password = " + password  ,"Customer created.",  JOptionPane.INFORMATION_MESSAGE);
 						//customer();
 						menuStart();
@@ -196,16 +196,16 @@ public class Menu extends JFrame{
 		content.add(panel2, BorderLayout.SOUTH);
 
 		f1.setVisible(true);
-		
+
 	}
-	
-	
-	
+
+
+
 	public void administrator() {
 		boolean loop = true, loop2 = true;
 		boolean cont = false;
-		
-		
+
+
 		while(loop && loop2)
 		{
 			Object adminUsername = JOptionPane.showInputDialog(f, "Enter Administrator Username:");
@@ -229,7 +229,7 @@ public class Menu extends JFrame{
 			{
 				loop = false;
 			}
-			
+
 			if(!adminPassword.equals("admin11"))//search admin list for admin with matching admin password
 			{
 				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect Password. Try again?", JOptionPane.YES_NO_OPTION);
@@ -248,31 +248,31 @@ public class Menu extends JFrame{
 				cont = true;
 			}
 
-			
+
 		}
 
-//		while(loop2)
-//		{
-//			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
-//
-//			if(!adminPassword.equals("admin11"))//search admin list for admin with matching admin password
-//			{
-//				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect Password. Try again?", JOptionPane.YES_NO_OPTION);
-//				if (reply == JOptionPane.YES_OPTION) {
-//
-//				}
-//				else if(reply == JOptionPane.NO_OPTION){
-//					f1.dispose();
-//					loop2 = false;
-//					menuStart();
-//				}
-//			}
-//			else
-//			{
-//				loop2 =false;
-//				cont = true;
-//			}
-//		}
+		//		while(loop2)
+		//		{
+		//			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
+		//
+		//			if(!adminPassword.equals("admin11"))//search admin list for admin with matching admin password
+		//			{
+		//				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect Password. Try again?", JOptionPane.YES_NO_OPTION);
+		//				if (reply == JOptionPane.YES_OPTION) {
+		//
+		//				}
+		//				else if(reply == JOptionPane.NO_OPTION){
+		//					f1.dispose();
+		//					loop2 = false;
+		//					menuStart();
+		//				}
+		//			}
+		//			else
+		//			{
+		//				loop2 =false;
+		//				cont = true;
+		//			}
+		//		}
 
 		if(cont)
 		{
@@ -284,11 +284,11 @@ public class Menu extends JFrame{
 
 
 	public void customer() {
-		boolean loop = true, loop2 = true;
+		boolean hasID = true, hasPassword = true;
 		boolean cont = false;
 		boolean found = false;
 		Customer customer = null;
-		while(loop && loop2)
+		while(hasID && hasPassword)
 		{
 			Object customerID = JOptionPane.showInputDialog(f, "Enter Customer ID:");
 			Object customerPassword = JOptionPane.showInputDialog(f, "Enter Customer Password;");
@@ -306,21 +306,21 @@ public class Menu extends JFrame{
 			{
 				int reply  = JOptionPane.showConfirmDialog(null, null, "User not found. Try again?", JOptionPane.YES_NO_OPTION);
 				if (reply == JOptionPane.YES_OPTION) {
-					loop = true;
+					hasID = true;
 				}
 				else if(reply == JOptionPane.NO_OPTION)
 				{
 					f.dispose();
-					loop = false;
-					loop2 = false;
+					hasID = false;
+					hasPassword = false;
 					menuStart();
 				}
 			}
 			else
 			{
-				loop = false;
+				hasID = false;
 			}
-			
+
 			if(!customer.getPassword().equals(customerPassword))//check if custoemr password is correct
 			{
 				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect password. Try again?", JOptionPane.YES_NO_OPTION);
@@ -329,20 +329,19 @@ public class Menu extends JFrame{
 				}
 				else if(reply == JOptionPane.NO_OPTION){
 					f.dispose();
-					loop2 = false;
+					hasPassword = false;
 					menuStart();
 				}
 			}
 			else
 			{
-				loop2 =false;
+				hasPassword =false;
 				cont = true;
 			}
 
-			
 
 		}
-		
+
 		if(cont)
 		{
 			f.dispose();
@@ -351,37 +350,37 @@ public class Menu extends JFrame{
 		}	
 	}
 
-//		while(loop2)
-//		{
-//			Object customerPassword = JOptionPane.showInputDialog(f, "Enter Customer Password;");
-//
-//			if(!customer.getPassword().equals(customerPassword))//check if custoemr password is correct
-//			{
-//				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect password. Try again?", JOptionPane.YES_NO_OPTION);
-//				if (reply == JOptionPane.YES_OPTION) {
-//
-//				}
-//				else if(reply == JOptionPane.NO_OPTION){
-//					f.dispose();
-//					loop2 = false;
-//					menuStart();
-//				}
-//			}
-//			else
-//			{
-//				loop2 =false;
-//				cont = true;
-//			}
-//		}
+	//		while(loop2)
+	//		{
+	//			Object customerPassword = JOptionPane.showInputDialog(f, "Enter Customer Password;");
+	//
+	//			if(!customer.getPassword().equals(customerPassword))//check if custoemr password is correct
+	//			{
+	//				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect password. Try again?", JOptionPane.YES_NO_OPTION);
+	//				if (reply == JOptionPane.YES_OPTION) {
+	//
+	//				}
+	//				else if(reply == JOptionPane.NO_OPTION){
+	//					f.dispose();
+	//					loop2 = false;
+	//					menuStart();
+	//				}
+	//			}
+	//			else
+	//			{
+	//				loop2 =false;
+	//				cont = true;
+	//			}
+	//		}
 
-//		if(cont)
-//		{
-//			f.dispose();
-//			loop = false;
-//			customer(customer);				    
-//		}	
+	//		if(cont)
+	//		{
+	//			f.dispose();
+	//			loop = false;
+	//			customer(customer);				    
+	//		}	
 
-	
+
 	public void admin()
 	{
 		//dispose();
@@ -458,7 +457,6 @@ public class Menu extends JFrame{
 			public void actionPerformed(ActionEvent ae) {
 
 				boolean loop = true;
-
 				boolean found = false;
 
 				if(customerList.isEmpty())
