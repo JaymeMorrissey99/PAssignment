@@ -109,7 +109,7 @@ public class Menu extends JFrame{
 	
 	private void newCustomer() {
 		// TODO Auto-generated method stub
-		f.dispose();		
+		dispose();		
 		f1 = new JFrame("Create New Customer");
 		f1.setSize(400, 300);
 		f1.setLocation(200, 200);
@@ -143,19 +143,12 @@ public class Menu extends JFrame{
 		add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-
 				PPS = pPSTextField.getText();
 				firstName = firstNameTextField.getText();
 				surname = surnameTextField.getText();
 				DOB = dOBTextField.getText();
 				password = "";
-
 				CustomerID = "ID"+PPS ;
-
-
-
-
-
 
 				add.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -179,10 +172,11 @@ public class Menu extends JFrame{
 						Customer customer = new Customer(PPS, surname, firstName, DOB, CustomerID, password, accounts);
 
 						customerList.add(customer);
-
+//						System.out.println(customerList.toString());
 						JOptionPane.showMessageDialog(f, "CustomerID = " + CustomerID +"\n Password = " + password  ,"Customer created.",  JOptionPane.INFORMATION_MESSAGE);
+						//customer();
 						menuStart();
-						f.dispose();
+						dispose();
 					}
 				});	
 			}
@@ -205,12 +199,17 @@ public class Menu extends JFrame{
 		
 	}
 	
+	
+	
 	public void administrator() {
 		boolean loop = true, loop2 = true;
 		boolean cont = false;
-		while(loop)
+		
+		
+		while(loop && loop2)
 		{
 			Object adminUsername = JOptionPane.showInputDialog(f, "Enter Administrator Username:");
+			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
 
 			if(!adminUsername.equals("admin"))//search admin list for admin with matching admin username
 			{
@@ -229,13 +228,8 @@ public class Menu extends JFrame{
 			else
 			{
 				loop = false;
-			}				    
-		}
-
-		while(loop2)
-		{
-			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
-
+			}
+			
 			if(!adminPassword.equals("admin11"))//search admin list for admin with matching admin password
 			{
 				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect Password. Try again?", JOptionPane.YES_NO_OPTION);
@@ -253,11 +247,36 @@ public class Menu extends JFrame{
 				loop2 =false;
 				cont = true;
 			}
+
+			
 		}
+
+//		while(loop2)
+//		{
+//			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
+//
+//			if(!adminPassword.equals("admin11"))//search admin list for admin with matching admin password
+//			{
+//				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect Password. Try again?", JOptionPane.YES_NO_OPTION);
+//				if (reply == JOptionPane.YES_OPTION) {
+//
+//				}
+//				else if(reply == JOptionPane.NO_OPTION){
+//					f1.dispose();
+//					loop2 = false;
+//					menuStart();
+//				}
+//			}
+//			else
+//			{
+//				loop2 =false;
+//				cont = true;
+//			}
+//		}
 
 		if(cont)
 		{
-			f1.dispose();
+			dispose();
 			loop = false;
 			admin();					    
 		}					   
@@ -269,9 +288,10 @@ public class Menu extends JFrame{
 		boolean cont = false;
 		boolean found = false;
 		Customer customer = null;
-		while(loop)
+		while(loop && loop2)
 		{
 			Object customerID = JOptionPane.showInputDialog(f, "Enter Customer ID:");
+			Object customerPassword = JOptionPane.showInputDialog(f, "Enter Customer Password;");
 
 			for (Customer aCustomer: customerList){
 
@@ -300,13 +320,7 @@ public class Menu extends JFrame{
 			{
 				loop = false;
 			}
-
-		}
-
-		while(loop2)
-		{
-			Object customerPassword = JOptionPane.showInputDialog(f, "Enter Customer Password;");
-
+			
 			if(!customer.getPassword().equals(customerPassword))//check if custoemr password is correct
 			{
 				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect password. Try again?", JOptionPane.YES_NO_OPTION);
@@ -324,8 +338,11 @@ public class Menu extends JFrame{
 				loop2 =false;
 				cont = true;
 			}
-		}
 
+			
+
+		}
+		
 		if(cont)
 		{
 			f.dispose();
@@ -334,10 +351,40 @@ public class Menu extends JFrame{
 		}	
 	}
 
+//		while(loop2)
+//		{
+//			Object customerPassword = JOptionPane.showInputDialog(f, "Enter Customer Password;");
+//
+//			if(!customer.getPassword().equals(customerPassword))//check if custoemr password is correct
+//			{
+//				int reply  = JOptionPane.showConfirmDialog(null, null, "Incorrect password. Try again?", JOptionPane.YES_NO_OPTION);
+//				if (reply == JOptionPane.YES_OPTION) {
+//
+//				}
+//				else if(reply == JOptionPane.NO_OPTION){
+//					f.dispose();
+//					loop2 = false;
+//					menuStart();
+//				}
+//			}
+//			else
+//			{
+//				loop2 =false;
+//				cont = true;
+//			}
+//		}
+
+//		if(cont)
+//		{
+//			f.dispose();
+//			loop = false;
+//			customer(customer);				    
+//		}	
+
 	
 	public void admin()
 	{
-		dispose();
+		//dispose();
 
 		f = new JFrame("Administrator Menu");
 		f.setSize(400, 400);

@@ -30,8 +30,6 @@ public class CustomerAccount  {
 	}
 	
 	
-
-	
 	public double getBalance()
 	{
 		return this.balance;
