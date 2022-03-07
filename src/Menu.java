@@ -457,7 +457,7 @@ public class Menu extends JFrame{
 		bankChargesButton.addActionListener(new ActionListener(  ) {
 			public void actionPerformed(ActionEvent ae) {
 
-				boolean loop = true;
+				boolean notFound = true;
 				boolean found = false;
 
 				if(customerList.isEmpty())
@@ -469,7 +469,7 @@ public class Menu extends JFrame{
 				}
 				else
 				{
-					while(loop)
+					while(notFound)
 					{
 						Object customerID = JOptionPane.showInputDialog(f, "Customer ID of Customer You Wish to Apply Charges to:");
 
@@ -479,7 +479,7 @@ public class Menu extends JFrame{
 							{
 								found = true;
 								customer = aCustomer; 
-								loop = false;
+								notFound = false;
 							}					    	
 						}
 
@@ -487,12 +487,12 @@ public class Menu extends JFrame{
 						{
 							int reply  = JOptionPane.showConfirmDialog(null, null, "User not found. Try again?", JOptionPane.YES_NO_OPTION);
 							if (reply == JOptionPane.YES_OPTION) {
-								loop = true;
+								notFound = true;
 							}
 							else if(reply == JOptionPane.NO_OPTION)
 							{
 								f.dispose();
-								loop = false;
+								notFound = false;
 
 								admin();
 							}
