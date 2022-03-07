@@ -345,7 +345,7 @@ public class Menu extends JFrame{
 		if(cont)
 		{
 			f.dispose();
-			loop = false;
+			hasID = false;
 			customer(customer);				    
 		}	
 	}
@@ -452,6 +452,7 @@ public class Menu extends JFrame{
 		//	content.add(deleteAccountPanel);
 		content.add(returnPanel);
 
+		////////////////////////////////////////////////////////////
 
 		bankChargesButton.addActionListener(new ActionListener(  ) {
 			public void actionPerformed(ActionEvent ae) {
@@ -498,6 +499,7 @@ public class Menu extends JFrame{
 						}  
 						else
 						{
+							bankCharge();
 							f.dispose();
 							f = new JFrame("Administrator Menu");
 							f.setSize(400, 300);
@@ -511,8 +513,6 @@ public class Menu extends JFrame{
 							JComboBox<String> box = new JComboBox<String>();
 							for (int i =0; i < customer.getAccounts().size(); i++)
 							{
-
-
 								box.addItem(customer.getAccounts().get(i).getNumber());
 							}
 
@@ -558,8 +558,7 @@ public class Menu extends JFrame{
 
 										if(acc instanceof CustomerDepositAccount)
 										{
-
-
+											
 											JOptionPane.showMessageDialog(f, "25" + euro + " deposit account fee aplied."  ,"",  JOptionPane.INFORMATION_MESSAGE);
 											acc.setBalance(acc.getBalance()-25);
 											JOptionPane.showMessageDialog(f, "New balance = " + acc.getBalance() ,"Success!",  JOptionPane.INFORMATION_MESSAGE);
@@ -597,6 +596,9 @@ public class Menu extends JFrame{
 			}		
 		});
 
+		
+	
+		
 		interestButton.addActionListener(new ActionListener(  ) {
 			public void actionPerformed(ActionEvent ae) {
 
@@ -1690,5 +1692,10 @@ public class Menu extends JFrame{
 		}  
 		return true;  
 	}
+	
+	public void bankCharge() {
+		
+	}
+	
 }
 

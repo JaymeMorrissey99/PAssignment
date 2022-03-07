@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class CustomerCurrentAccount extends CustomerAccount 
 {
 	ATMCard atm;
@@ -26,5 +28,16 @@ public void setAtm(ATMCard atm)
 {
 	this.atm = atm;
 }
+
+
+//public void addCharge(ArrayList<Customer> acc) {
+//	
+//	JOptionPane.showMessageDialog(f, "25" + euro + " deposit account fee aplied."  ,"",  JOptionPane.INFORMATION_MESSAGE);
+//	acc.setBalance(acc.getBalance()-25);
+//	JOptionPane.showMessageDialog(f, "New balance = " + acc.getBalance() ,"Success!",  JOptionPane.INFORMATION_MESSAGE);
+//}
+
+
+
 
 }
